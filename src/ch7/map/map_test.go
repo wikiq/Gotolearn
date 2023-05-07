@@ -47,6 +47,7 @@ func TestTravelMap(t *testing.T) {
 	for k, v := range m2 {
 		t.Log(k, v)
 	}
+
 	//k是每次加一，v是每次加一，对吗？
 	//不对
 	//为什么？
@@ -89,3 +90,14 @@ func TestTravelMap(t *testing.T) {
 //for i := range []int{1, 2, 3, 4} {
 //	t.Log(i)
 //}
+
+func TestTracelMap(t *testing.T) {
+	m1 := map[int]int{1: 1, 2: 4, 3: 9}
+	for k, v := range m1 {
+		t.Log(k, v)
+	}
+
+	for i, k := range []int{3, 3, 7, 4} {
+		t.Log(i, k)
+	}
+}
