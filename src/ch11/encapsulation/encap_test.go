@@ -3,6 +3,7 @@ package encapsulation
 import (
 	"fmt"
 	"testing"
+	"unsafe"
 )
 
 type Employee struct {
@@ -18,10 +19,22 @@ func TestCreateEmployee0bj(t *testing.T) {
 	t.Log(e1)
 }
 
-func (e Employee) String() string {
+func (e *Employee) String() string {
+	fmt.Printf("Address is %x", unsafe.Pointer(&e.Name))
 	return fmt.Sprintf("ID:%s-Name:%s-Age:%d", e.Id, e.Name, e.Age)
 }
 
+func TestStructOperations(t *testing.T) {
+	e := Employee{"0", "Bob", 20}
+
+	t.Log(e.String())
+}
+
+//上面这是在给e赋值，下面这是在调用e的方法
+//在给e赋值的时候，e是值传递，所以e的值不会改变
+//e.String()是什么意思？
+//调用e的String()方法
+/*---*/
 //func的格式是什么？
 //func () {}
 //func (参数列表) {}
@@ -45,12 +58,3 @@ func (e Employee) String() string {
 //用指针传递
 //比如我现在不需要修改原来的值，我应该用哪种传递方式？
 //用值传递
-
-func TestStructOperations(t *testing.T) {
-	e := Employee{"0", "Bob", 20}
-	//上面这是在给e赋值，下面这是在调用e的方法
-	//在给e赋值的时候，e是值传递，所以e的值不会改变
-	//e.String()是什么意思？
-	//调用e的String()方法
-	t.Log(e.String())
-}
