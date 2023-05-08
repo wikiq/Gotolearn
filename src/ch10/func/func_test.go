@@ -62,6 +62,6 @@ func TestDefer(t *testing.T) {
 		t.Log("Clear resources with func")
 	}()*/
 	t.Log("Started")
-	panic("Fatal error") // defer仍然会执行
+	//panic("Fatal error") // defer仍然会执行
 	fmt.Println("End")
 }
