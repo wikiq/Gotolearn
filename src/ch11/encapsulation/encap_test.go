@@ -12,21 +12,23 @@ type Employee struct {
 	Age  int
 }
 
-func TestCreateEmployee0bj(t *testing.T) {
+/*func (e Employee) String() string {
+	fmt.Printf("Address is %x\n", unsafe.Pointer(&e.Name))
+	return fmt.Sprintf("ID:%s-Name:%s-Age:%d", e.Id, e.Name, e.Age)
+}*/
+
+/*func TestStructOperations(t *testing.T) {
 	e := Employee{"0", "Bob", 20}
-	t.Log(e)
-	e1 := Employee{Name: "Mike", Age: 30}
-	t.Log(e1)
-}
+	t.Log(e.String())
+}*/
 
 func (e *Employee) String() string {
-	fmt.Printf("Address is %x", unsafe.Pointer(&e.Name))
+	fmt.Printf("Address is %x\n", unsafe.Pointer(&e.Name))
 	return fmt.Sprintf("ID:%s-Name:%s-Age:%d", e.Id, e.Name, e.Age)
 }
 
-func TestStructOperations(t *testing.T) {
+func TestCreateEmployeeObj(t *testing.T) {
 	e := Employee{"0", "Bob", 20}
-
 	t.Log(e.String())
 }
 
