@@ -21,6 +21,8 @@ func timeSpent(inner func(op int) int) func(op int) int {
 }
 
 // timeSpent是一个干嘛的函数？
+// 给我解释一下“func timeSpent(inner func(op int) int) func(op int) int ”这段话
+// timeSpent是一个函数，它的参数是一个函数，返回值也是一个函数
 func slowFun(op int) int {
 	time.Sleep(time.Second * 1)
 	return op
