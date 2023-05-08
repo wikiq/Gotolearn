@@ -36,3 +36,32 @@ func TestFn(t *testing.T) {
 }
 
 //结果每次都不一样，因为rand.Intn()是随机数
+
+func Sum(ops ...int) int {
+	ret := 0
+	for _, op := range ops {
+		ret += op
+		fmt.Println(ret)
+	}
+	return ret
+}
+
+func TestVarParam(t *testing.T) {
+
+	t.Log(Sum(1, 2, 3, 4, 5))
+	t.Log(Sum(1, 2, 3, 4))
+}
+
+func Clear() {
+	fmt.Println("Clear resources.")
+}
+
+func TestDefer(t *testing.T) {
+	defer Clear()
+	/*defer func() {
+		t.Log("Clear resources with func")
+	}()*/
+	t.Log("Started")
+	panic("Fatal error") // defer仍然会执行
+	fmt.Println("End")
+}
