@@ -45,6 +45,8 @@ func TestStructOperations(t *testing.T) {
 //参数列表和返回值列表的格式是什么？
 //参数列表：参数名 参数类型
 //返回值列表：返回值名 返回值类型
+
+/*--func解释--*/
 //func (e Employee) String() string {}的意思是什么？
 //e Employee是接收者，String()是方法名，string是返回值类型
 
