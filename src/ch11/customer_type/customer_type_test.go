@@ -23,9 +23,9 @@ type IntConv func(op int) int
 // func 函数名(参数列表) 返回值列表
 func timeSpent(inner IntConv) IntConv {
 	return func(n int) int {
-		start := time.Now()
+		begin := time.Now()
 		ret := inner(n)
-		println("time spent:", time.Since(start).Seconds())
+		println("time spent:", time.Since(begin).Seconds())
 		return ret
 	}
 }
