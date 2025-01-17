@@ -6,6 +6,7 @@ import (
 )
 
 func main() {
+	map_test()
 	map_range_two()
 }
 
