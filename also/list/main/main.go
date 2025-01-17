@@ -18,6 +18,37 @@ func list_test() {
 	// 为什么要用这个循环，这个循环的作用是什么
 }
 
+func list_delete() {
+	l := list.New()
+	l.PushBack(("canonical"))
+	//canonical
+	l.PushFront(67)                   //67,canonical
+	element := l.PushBack("fist")     //67,canonical,fist
+	l.InsertAfter("After", element)   //67,canonical,fist,After
+	l.InsertBefore("before", element) //67,After,canonical,before,fist
+	for e := l.Front(); e != nil; e = e.Next() {
+		fmt.Println(e.Value)
+	}
+	fmt.Println("====================================")
+	l.Remove(element) //删除元素67,After,canonical,before,After
+	for e := l.Front(); e != nil; e = e.Next() {
+		fmt.Println(e.Value)
+	}
+}
+
+func nil_test() {
+	// var nil = errors.New("my god")
+	// fmt.Println(nil)
+
+	var arr []int
+	var num *int
+	fmt.Println(arr == nil)
+	fmt.Println(num == nil)
+	// fmt.Println(arr == nil && num == nil)
+}
+
 func main() {
-	list_test()
+	// list_test()
+	// list_delete()
+	nil_test()
 }
