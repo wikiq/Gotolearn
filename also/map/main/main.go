@@ -3,12 +3,27 @@ package main
 import (
 	"fmt"
 	"sort"
+	"sync"
 )
 
-func main() {
-	map_test()
-	map_range_two()
-}
+// func main() {
+// 	map_test()
+// 	map_range_two()
+// 	scence_map()
+// 	m := make(map[int]int)
+// 	go func() {
+// 		for {
+// 			m[1] = 1
+// 		}
+// 	}()
+// 	go func() {
+// 		for {
+// 			_ = m[1]
+// 		}
+// 	}()
+// 	for {
+// 	}
+// }
 
 func map_test() {
 	var mapList map[string]int
@@ -58,4 +73,25 @@ func map_range_two() {
 	}
 	sort.Strings(scence2)
 	fmt.Println(scence2)
+	delete(scence, "route")
+	fmt.Println(scence)
+}
+
+func scence_map() {
+	var scence3 sync.Map
+	scence3.Store("greece", 97)
+	scence3.Store("london", 100)
+	scence3.Store("egypt", 200)
+
+	fmt.Println(scence3.Load("london"))
+	scence3.Delete("london")
+	// fmt.Println(scence3.Load("london"))
+	scence3.Range(func(k, v interface{}) bool {
+		fmt.Println("iterate:", k, v)
+		return true
+	})
+}
+
+func main() {
+	scence_map()
 }
