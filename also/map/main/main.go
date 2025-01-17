@@ -1,9 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 func main() {
-	map_range()
+	map_range_two()
 }
 
 func map_test() {
@@ -36,4 +39,22 @@ func map_range() {
 	for key, value := range scene {
 		fmt.Println("Key:", key, "Value:", value)
 	}
+	for key := range scene {
+		fmt.Println("Key:", key)
+	}
+}
+
+func map_range_two() {
+	scence := make(map[string]int)
+
+	scence["route"] = 66
+	scence["brazil"] = 4
+	scence["china"] = 960
+
+	var scence2 []string
+	for key := range scence {
+		scence2 = append(scence2, key)
+	}
+	sort.Strings(scence2)
+	fmt.Println(scence2)
 }
