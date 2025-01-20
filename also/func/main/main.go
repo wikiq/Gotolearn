@@ -20,13 +20,23 @@ func visit(list []int, f func(int)) {
 	}
 }
 
+func visit2(list []int, f func(int)) {
+	for _, v := range list {
+		f(v)
+	}
+}
+
 func main() {
 	// fmt.Println(hybot(3, 4))
 
-	var f func(a, b int)
-	f = fire
-	f(10, 20)
-	visit([]int{1, 2, 3, 4}, func(v int) {
+	// var f func(a, b int)
+	// f = fire
+	// f(10, 20)
+	// visit([]int{1, 2, 3, 4}, func(v int) {
+	// 	fmt.Println(v)
+	// })
+
+	visit2([]int{1, 2, 3, 4}, func(v int) {
 		fmt.Println(v)
 	})
 }
