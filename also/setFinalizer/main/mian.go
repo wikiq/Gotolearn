@@ -35,5 +35,8 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Hello, playground")
+	for i := 0; i < 3001; i++ {
+		fmt.Println(i, ".", "i like you")
+
+	}
 }
