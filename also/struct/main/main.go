@@ -6,7 +6,7 @@ import (
 
 // 调用器接口
 type Invoker interface {
-	// 需要实现一个Call方法
+	// 需要实现一个Call方法∏
 	Call(interface{})
 }
 
